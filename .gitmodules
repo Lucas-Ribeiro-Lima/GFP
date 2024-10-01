@@ -1,0 +1,6 @@
+[submodule "backend"]
+	path = backend
+	url = https://github.com/Lucas-Ribeiro-Lima/GFP-Backend
+[submodule "frontend"]
+	path = frontend
+	url = https://github.com/Lucas-Ribeiro-Lima/GFP-Frontend

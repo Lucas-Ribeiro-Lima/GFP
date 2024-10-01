@@ -1,0 +1,13 @@
+{
+  "name": "gfp-mono-repo",
+  "version": "0.0.1",
+  "description": "Repositório de TCC de Lucas Ribeiro Lima, estudante da Unicesumar",
+  "private": false,
+  "author": "Lucas Ribeiro Lima",
+  "license": "ISC",
+  "scripts": {
+    "start:backend": "cd backend && yarn start",
+    "start:frontend": "cd frontend && yarn dev",
+    "start:all": "yarn run start:backend & yarn run start:frontend"
+  }
+}

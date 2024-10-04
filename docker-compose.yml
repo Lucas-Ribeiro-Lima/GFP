@@ -6,7 +6,7 @@ services:
     restart: unless-stopped
     container_name: redis_gfp
     volumes:
-      - /gfp/redis:/usr/local/etc/redis
+      - /GFP/redis:/usr/local/etc/redis
     ports:
       - 6379:6379
     networks:
@@ -21,7 +21,7 @@ services:
       MYSQL_USER: ${GFPUSER}
       MYSQL_PASSWORD: ${GFPPWD} 
     volumes:
-      - /gfp/mysql:/var/lib/mysql
+      - /GFP/mysql:/var/lib/mysql
     ports:
       - 3306:3306
     networks:

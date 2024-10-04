@@ -6,6 +6,6 @@
   "author": "Lucas Ribeiro Lima",
   "license": "ISC",
   "scripts": {
-    "start": "docker-compose up"
+    "start": "sudo docker-compose up -d"
   }
 }

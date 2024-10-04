@@ -1,0 +1,31 @@
+---
+version: "3.0"
+services:
+  redis:
+    image: redis:7.4
+    restart: unless-stopped
+    container_name: redis_gfp
+    volumes:
+      - /gfp/redis:/usr/local/etc/redis
+    ports:
+      - 6379:6379
+    networks:
+      - backend-tier
+  mysql:
+    image: mysql:9.0
+    restart: unless-stopped
+    container_name: mysql_gfp
+    environment:
+      MYSQL_ROOT_PASSWORD: ${ROOTPWD}
+      MYSQL_DATABASE: 'gfp'
+      MYSQL_USER: ${GFPUSER}
+      MYSQL_PASSWORD: ${GFPPWD} 
+    volumes:
+      - /gfp/mysql:/var/lib/mysql
+    ports:
+      - 3306:3306
+    networks:
+      - backend-tier
+
+networks:
+  backend-tier:

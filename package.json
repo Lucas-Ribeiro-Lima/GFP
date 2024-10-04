@@ -6,8 +6,6 @@
   "author": "Lucas Ribeiro Lima",
   "license": "ISC",
   "scripts": {
-    "start:backend": "cd backend && yarn start",
-    "start:frontend": "cd frontend && yarn dev",
-    "start:all": "yarn run start:backend & yarn run start:frontend"
+    "start": "docker-compose up"
   }
 }

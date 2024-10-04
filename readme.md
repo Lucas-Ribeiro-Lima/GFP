@@ -45,7 +45,17 @@ O GFP visa oferecer uma plataforma completa para o gerenciamento de recursos fin
 - **Containers:** Utilização de **Docker** para a implementação e deployment.
 - **Banco de Dados:** **MySQL** para persistência relacional dos dados.
 - **Armazenamento de Sessões:** **Redis** para armazenamento de sessões e cache de dados.
-- **Sistema Operacional:** Ambiente Linux
+- **Sistema Operacional:** Ambiente Linux.
+
+### 📦 Requisitos de Implantação
+
+- **Banco de Dados MySQL:** O sistema deve ser implantado em um banco de dados MySQL na versão **9.0.1**, garantindo a compatibilidade com as funcionalidades utilizadas, exposto na porta **3306**.
+- **Redis:** Um banco de dados NoSQL do tipo chave-valor será utilizado para o cache de sessões. O Redis será implantado na versão **7.4**, exposto na porta **6379**.
+- **Variáveis de Ambiente:**  
+  As variáveis de ambiente devem ser configuradas no servidor de implantação ou em um arquivo `.env` localizado no diretório raiz do projeto:
+  - **ROOTPWD:** Senha do usuário root do banco de dados.
+  - **GFPUSER:** Usuário do banco de dados.
+  - **GPFPWD:** Senha do usuário **GFPUSER** do banco de dados.
 
 ## 🔐 Requisitos Funcionais e Não Funcionais
 
@@ -73,16 +83,10 @@ O GFP visa oferecer uma plataforma completa para o gerenciamento de recursos fin
 Será utilizada a metodologia **Kanban** para o desenvolvimento do software, realizando entregas de pequenos pacotes de software de forma incremental, facilitando o acompanhamento do progresso e a realização de testes.
 
 ## 📚 Referências Bibliográficas
-Anderson, D. J. (2010). **Kanban**: Successful Evolutionary Change for Your Technology Business. Blue Hole Press.
-
-CENTRO UNIVERSITÁRIO DE MARINGÁ. Núcleo de Educação a Distância; PERSEGUINE, Vanessa Ravazzi. **Engenharia de Requisitos**. Maringá-Pr.: UniCesumar, 2017. Reimpressão, 2021.158 p.
-
-Centro Universitário de Maringá. Núcleo de Educação a Distância et al. (2019). **Engenharia de Software**. Maringá-Pr.: Unicesumar.
-
-Centro Universitário de Maringá. Núcleo de Educação a Distância; Pelissari, William Roberto; Luz, Carlos Danilo; Kaiser, Jeferson. (2021). **Banco de Dados II**. Maringá-Pr.: UniCesumar.
-
-Martin, R. C. (2008). **Clean Code**: A Handbook of Agile Software Craftsmanship. Prentice Hall.
-
-PISANI DA ARCH. **Diagrama de Componentes na Prática | UML**. Jan. 2024. Disponível em: https://www.youtube.com/watch?v=yjFpwFZHGtw. Acesso em: 24 set. 2024.
-
-UNIVERSIDADE FEDERAL DE JUIZ DE FORA. **Documento de requisitos do sistema**. Juiz de Fora: UFJF, 2016. Disponível em: https://www2.ufjf.br/diavi//files/2016/07/DocumentosdeRequisitosdoSistema.pdf. Acesso em: 24 set. 2024.
+- Anderson, D. J. (2010). **Kanban**: Successful Evolutionary Change for Your Technology Business. Blue Hole Press.
+- CENTRO UNIVERSITÁRIO DE MARINGÁ. Núcleo de Educação a Distância; PERSEGUINE, Vanessa Ravazzi. **Engenharia de Requisitos**. Maringá-Pr.: UniCesumar, 2017. Reimpressão, 2021.158 p.
+- Centro Universitário de Maringá. Núcleo de Educação a Distância et al. (2019). **Engenharia de Software**. Maringá-Pr.: Unicesumar.
+- Centro Universitário de Maringá. Núcleo de Educação a Distância; Pelissari, William Roberto; Luz, Carlos Danilo; Kaiser, Jeferson. (2021). **Banco de Dados II**. Maringá-Pr.: UniCesumar.
+- Martin, R. C. (2008). **Clean Code**: A Handbook of Agile Software Craftsmanship. Prentice Hall.
+- PISANI DA ARCH. **Diagrama de Componentes na Prática | UML**. Jan. 2024. Disponível em: https://www.youtube.com/watch?v=yjFpwFZHGtw. Acesso em: 24 set. 2024.
+- UNIVERSIDADE FEDERAL DE JUIZ DE FORA. **Documento de requisitos do sistema**. Juiz de Fora: UFJF, 2016. Disponível em: https://www2.ufjf.br/diavi//files/2016/07/DocumentosdeRequisitosdoSistema.pdf. Acesso em: 24 set. 2024.

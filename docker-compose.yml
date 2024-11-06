@@ -1,20 +1,40 @@
 ---
 version: "3.0"
 services:
+  gfp-backend:
+    image: lucaslive974/gfp-backend:1.0.1
+    build: ./backend/
+    container_name: gfp_backend
+    volumes: 
+      - /GFP/app/backend/logs:/gfp/src/logs
+    environment:
+      - CALLBACK_DOMAIN=${CALLBACK_DOMAIN}
+      - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID}
+      - GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET}
+    ports:
+      - 5555:5000
+    depends_on:
+      redis:
+        condition: service_completed_successfully
+      mysql:
+        condition: service_completed_successfully
+    networks:
+      - gfp-network
+
   redis:
     image: redis:7.4
     restart: unless-stopped
-    container_name: redis_gfp
+    container_name: gfp_redis
     volumes:
       - /GFP/redis:/usr/local/etc/redis
     ports:
       - 6379:6379
     networks:
-      - backend-tier
+      - gfp-network
   mysql:
     image: mysql:9.0
     restart: unless-stopped
-    container_name: mysql_gfp
+    container_name: gfp_mysql
     environment:
       MYSQL_ROOT_PASSWORD: ${ROOTPWD}
       MYSQL_DATABASE: 'gfp'
@@ -25,7 +45,7 @@ services:
     ports:
       - 3306:3306
     networks:
-      - backend-tier
+      - gfp-network
 
 networks:
-  backend-tier:
+  gfp-network:

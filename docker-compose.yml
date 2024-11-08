@@ -4,7 +4,7 @@ services:
   gfp-backend:
     image: lucaslive974/gfp-backend:1.0.1
     container_name: gfp_backend
-    volumes: 
+    volumes:
       - /GFP/app/backend/logs:/gfp/src/logs
     environment:
       - CALLBACK_DOMAIN=${CALLBACK_DOMAIN}
@@ -16,13 +16,13 @@ services:
       - REDIS_URL=${REDIS_URL}
       - SESSION_SECRET=${SESSION_SECRET}
       - CORS_ALLOWED_ORIGIN=${CORS_ALLOWED_ORIGIN}
+      - REDIRECT_FRONTEND_URL=${REDIRECT_FRONTEND_URL}
+      - GFP_COOKIE_DOMAIN=${GFP_COOKIE_DOMAIN}
     ports:
       - 5000:5000
     depends_on:
-      redis:
-        condition: service_completed_successfully
-      mysql:
-        condition: service_completed_successfully
+      - redis
+      - mysql
     networks:
       - network
 
@@ -45,7 +45,7 @@ services:
       MYSQL_ROOT_PASSWORD: ${ROOTPWD}
       MYSQL_DATABASE: 'gfp'
       MYSQL_USER: ${GFPUSER}
-      MYSQL_PASSWORD: ${GFPPWD} 
+      MYSQL_PASSWORD: ${GFPPWD}
     volumes:
       - /GFP/mysql:/var/lib/mysql
     ports:

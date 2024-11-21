@@ -1,8 +1,20 @@
 ---
 version: "3.0"
 services:
+  gfp-frontend:
+    image: lucaslive974/gfp-frontend:1.0.0
+    container_name: gfp_frontend
+    environment:
+      - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
+    ports:
+      - 3000:3000
+    depends_on:
+      - gfp-backend
+    networks:
+      - network
+        
   gfp-backend:
-    image: lucaslive974/gfp-backend:1.0.1
+    image: lucaslive974/gfp-backend:1.2.1
     container_name: gfp_backend
     volumes:
       - /GFP/app/backend/logs:/gfp/src/logs
@@ -32,8 +44,6 @@ services:
     container_name: gfp_redis
     volumes:
       - /GFP/redis:/usr/local/etc/redis
-    ports:
-      - 6379:6379
     networks:
       - network
 

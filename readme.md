@@ -53,9 +53,36 @@ O GFP visa oferecer uma plataforma completa para o gerenciamento de recursos fin
 - **Redis:** Um banco de dados NoSQL do tipo chave-valor será utilizado para o cache de sessões. O Redis será implantado na versão **7.4**, exposto na porta **6379**.
 - **Variáveis de Ambiente:**  
   As variáveis de ambiente devem ser configuradas no servidor de implantação ou em um arquivo `.env` localizado no diretório raiz do projeto:
-  - **ROOTPWD:** Senha do usuário root do banco de dados.
-  - **GFPUSER:** Usuário do banco de dados.
-  - **GPFPWD:** Senha do usuário **GFPUSER** do banco de dados.
+
+### Variáveis Necessárias
+
+#### Banco de Dados
+- **`ROOTPWD`**  Senha do usuário `root` do banco de dados.
+- **`GFPUSER`**  Nome do usuário dedicado à aplicação no banco de dados.
+- **`GPFPWD`**  Senha do usuário **GFPUSER**.
+
+#### Conexões e URLs
+- **`REDIS_URL`**  URL para o servidor Redis, usada para armazenamento de sessões ou cache.
+- **`DATABASE_URL`**  URL de conexão ao banco de dados
+
+#### Configurações do Servidor
+- **`EXPRESS_HOST`** Host no qual o servidor Express será executado (exemplo: `localhost` ou IP do servidor).
+- **`EXPRESS_PORT`**  Porta na qual o servidor Express estará disponível (exemplo: `3000`).
+
+#### Sessões e Segurança
+- **`SESSION_SECRET`**  Chave secreta usada para assinar as sessões. Deve ser única e segura.
+
+#### Autenticação com Google
+- **`CALLBACK_DOMAIN`**  Domínio para os callbacks de autenticação (exemplo: `https://seu-dominio.com`).
+- **`GOOGLE_CLIENT_ID`**  ID do cliente da API do Google usado para autenticação.
+- **`GOOGLE_CLIENT_SECRET`**  Segredo do cliente da API do Google usado para autenticação.
+
+#### Integração com o Frontend
+- **`REDIRECT_FRONTEND_URL`**  URL para redirecionamento ao frontend após autenticação (exemplo: `https://seu-frontend.com`).
+
+#### Cookies e CORS
+- **`GFP_COOKIE_DOMAIN`**  Domínio usado para configurar cookies (exemplo: `.seu-dominio.com`).
+- **`CORS_ALLOWED_DOMAIN`**  Domínio permitido para requisições Cross-Origin (exemplo: `https://seu-dominio.com`).
 
 ## 🔐 Requisitos Funcionais e Não Funcionais
 
